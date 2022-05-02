@@ -1,5 +1,6 @@
 $(function(){
     $("#uploadForm").submit(upload);
+    $("form").submit(check_data);
 });
 
 function upload() {
@@ -30,4 +31,14 @@ function upload() {
         }
     });
     return false;
+}
+
+function check_data() {
+    var pwd1 = $("#password").val();
+    var pwd2 = $("#confirm-password").val();
+    if(pwd1 != pwd2) {
+        $("#confirm-password").addClass("is-invalid");
+        return false;
+    }
+    return true;
 }
